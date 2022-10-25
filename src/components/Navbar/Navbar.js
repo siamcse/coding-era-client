@@ -31,7 +31,10 @@ const Navbar = () => {
                             {
                                 user ?
                                     <li>
-                                        <p>{user.email}</p>
+                                        <div>
+                                            <img className='w-9 rounded-full' src={user?.photoURL} alt='' title={user?.displayName} />
+                                            <p>{user?.displayName}</p>
+                                        </div>
                                         <button onClick={handleLogOut} className="btn">Log Out</button>
                                     </li>
                                     :
@@ -49,9 +52,11 @@ const Navbar = () => {
                         <li><Link to='/blog'>Blog</Link></li>
                         {
                             user ?
-                                <li>
-                                    <p>{user.email}</p>
+                                <li className='flex items-center'>
                                     <button onClick={handleLogOut} className="btn">Log Out</button>
+                                    <div>
+                                        <img className='w-9 rounded-full' src={user?.photoURL} alt='' title={user?.displayName} />
+                                    </div>
                                 </li>
                                 :
                                 <Link to='/login' className="btn">Login</Link>
@@ -59,6 +64,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
+                    <p className='mr-2'>Dark Mode:</p>
                     <ToggleButton
                         value={value || false}
                         onToggle={(value) => {

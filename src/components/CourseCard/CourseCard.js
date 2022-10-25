@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const CourseCard = ({ course }) => {
     const { id, title, description, image } = course;
@@ -17,10 +18,12 @@ const CourseCard = ({ course }) => {
                         }
                     </p>
                     <div className="card-actions">
-                        <button className="btn btn-primary btn-sm w-full absolute bottom-0 ">
-                            Details
-                            <FaArrowRight className='ml-2'/>
-                        </button>
+                        <Link to={`/course/${id}`}>
+                            <button className="btn btn-primary btn-sm w-full absolute bottom-0 ">
+                                Details
+                                <FaArrowRight className='ml-2' />
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>

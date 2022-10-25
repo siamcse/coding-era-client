@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, profileUpdate } = useContext(AuthContext);
     const [error, setError] = useState('');
 
     const handleSubmit = (event) => {
@@ -22,6 +22,15 @@ const Register = () => {
         createUser(email, password)
         .then(result=>{
             console.log(result.user);
+            profileUpdate({
+                displayName: name,
+                photoURL: photoURL
+            })
+            .then(()=>{})
+            .catch(e=>{
+                console.error(e);
+                setError(e.message);
+            })
         })
         .catch(e=>{
             console.error(e)
@@ -64,7 +73,7 @@ const Register = () => {
                             </label>
                         </div>
                         {
-                            error && <p className='text-warning'>{error}</p>
+                           error && <p className='text-red-700'>{error}</p>
                         }
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Register</button>

@@ -1,7 +1,7 @@
 import React from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import CourseCard from '../CourseCard/CourseCard';
 
 const Courses = () => {
@@ -16,7 +16,7 @@ const Courses = () => {
                     {
                         courses.map(course =>
                             <h4 className='p-4'>
-                                {course.title}
+                                <Link to={`/course/${course.id}`}>{course.title}</Link>
                             </h4>)
                     }
                 </div>
