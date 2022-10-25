@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { FcCheckmark } from "react-icons/fc";
 
 const CourseDetails = () => {
     const course = useLoaderData();
@@ -13,11 +14,15 @@ const CourseDetails = () => {
                     <div>
                         <h1 className="text-5xl font-bold">{title}</h1>
                         <p className="py-6">{description}</p>
-                        <h3 className='text-3xl font-semibold'>What will you learn?</h3>
-                        {
-                            learnItem.map(item=> <li>{item}</li>)
-                        }
-                        <button className="btn btn-primary py-6">Get Started</button>
+                        <h3 className='text-3xl font-semibold my-3'>What will you learn?</h3>
+                        <ul>
+                            {
+                                learnItem.map(item => <li className='flex items-start'>
+                                    <FcCheckmark className='border-2 border-green-600 rounded-full mr-3'/>
+                                    {item}</li>)
+                            }
+                        </ul>
+                        <button className="btn btn-primary my-6">Get Started</button>
                     </div>
                 </div>
             </div>
