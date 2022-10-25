@@ -1,15 +1,20 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { FcCheckmark } from "react-icons/fc";
+import Pdf from "react-to-pdf";
 
 const CourseDetails = () => {
     const course = useLoaderData();
+    const ref = React.createRef();
     const { title, description, learnItem, image } = course;
     console.log(course);
     return (
         <div className='lg:w-3/4 mx-auto'>
+                <Pdf targetRef={ref} filename="code-example.pdf">
+                    {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
+                </Pdf>
             <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row">
+                <div ref={ref} className="hero-content flex-col lg:flex-row">
                     <img src={image} className="max-w-md rounded-lg shadow-2xl" alt='' />
                     <div>
                         <h1 className="text-5xl font-bold">{title}</h1>
