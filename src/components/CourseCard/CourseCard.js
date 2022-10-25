@@ -10,9 +10,9 @@ const CourseCard = ({ course }) => {
                     <h2 className="card-title">{title}</h2>
                     <p>
                         {description.length > 100 ?
-                            <>{description.slice(0, 100)+"..."}</>
+                            <>{description.slice(0, 100) + "..."}</>
                             :
-                            {description}
+                            { description }
                         }
                     </p>
                     <div className="card-actions">
