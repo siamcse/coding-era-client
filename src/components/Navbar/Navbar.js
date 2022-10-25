@@ -2,9 +2,19 @@ import React from 'react';
 import ToggleButton from 'react-toggle-button'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Navbar = () => {
     const [value, setValue] = useState(false);
+    const { logOut, user } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(e => console.error(e))
+    }
+
     return (
         <div>
             <div className="navbar bg-neutral text-neutral-content">
@@ -13,10 +23,20 @@ const Navbar = () => {
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
-                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box text-black w-52">
                             <li><Link to='/home'>Home</Link></li>
                             <li><Link to='/courses'>Courses</Link></li>
+                            <li><Link to='/faq'>FAQ</Link></li>
                             <li><Link to='/blog'>Blog</Link></li>
+                            {
+                                user ?
+                                    <li>
+                                        <p>{user.email}</p>
+                                        <button onClick={handleLogOut} className="btn">Log Out</button>
+                                    </li>
+                                    :
+                                    <Link to='/login' className="btn">Login</Link>
+                            }
                         </ul>
                     </div>
                     <Link to='/' className="btn btn-ghost normal-case text-xl">Coding Era</Link>
@@ -27,6 +47,15 @@ const Navbar = () => {
                         <li><Link to='/courses'>Courses</Link></li>
                         <li><Link to='/faq'>FAQ</Link></li>
                         <li><Link to='/blog'>Blog</Link></li>
+                        {
+                            user ?
+                                <li>
+                                    <p>{user.email}</p>
+                                    <button onClick={handleLogOut} className="btn">Log Out</button>
+                                </li>
+                                :
+                                <Link to='/login' className="btn">Login</Link>
+                        }
                     </ul>
                 </div>
                 <div className="navbar-end">
@@ -35,7 +64,8 @@ const Navbar = () => {
                         onToggle={(value) => {
                             setValue(!value)
                         }} />
-                    <Link to='/login' className="btn">Login</Link>
+
+
                 </div>
             </div>
         </div>
