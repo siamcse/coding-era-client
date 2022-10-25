@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaArrowRight } from 'react-icons/fa';
 
 const CourseCard = ({ course }) => {
     const { id, title, description, image } = course;
@@ -16,7 +17,10 @@ const CourseCard = ({ course }) => {
                         }
                     </p>
                     <div className="card-actions">
-                        <button className="btn btn-primary w-full">Details</button>
+                        <button className="btn btn-primary btn-sm w-full absolute bottom-0 ">
+                            Details
+                            <FaArrowRight className='ml-2'/>
+                        </button>
                     </div>
                 </div>
             </div>

@@ -8,7 +8,8 @@ const Courses = () => {
         <div className='mx-12 my-12 '>
             <h2 className='text-3xl text-center'>All Courses: {courses.length}</h2>
             <div className='grid grid-cols-3 mt-10'>
-                <div className='w-3/4 mx-auto'>
+                <div className='w-3/4 mx-auto min-h-screen'>
+                    <h2 className='text-3xl text-center'>All Course Title</h2>
                     {
                         courses.map(course =>
                             <h4 className='p-4'>
