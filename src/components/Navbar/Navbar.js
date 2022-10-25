@@ -1,7 +1,10 @@
 import React from 'react';
+import ToggleButton from 'react-toggle-button'
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const Navbar = () => {
+    const [value, setValue] = useState(false);
     return (
         <div>
             <div className="navbar bg-neutral text-neutral-content">
@@ -22,11 +25,17 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal p-0">
                         <li><Link to='/home'>Home</Link></li>
                         <li><Link to='/courses'>Courses</Link></li>
+                        <li><Link to='/faq'>FAQ</Link></li>
                         <li><Link to='/blog'>Blog</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link className="btn">Get started</Link>
+                    <ToggleButton
+                        value={value || false}
+                        onToggle={(value) => {
+                            setValue(!value)
+                        }} />
+                    <Link to='/login' className="btn">Login</Link>
                 </div>
             </div>
         </div>

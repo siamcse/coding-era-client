@@ -6,7 +6,7 @@ const CourseCard = ({ course }) => {
     return (
         <div>
             <div className="card card-compact w-full h-96 bg-base-100 shadow-xl">
-                <figure><img className='h-40' src={image} alt="Shoes" /></figure>
+                <figure><img data-aos="zoom-in" className='h-40' src={image} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{title}</h2>
                     <p>
