@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
@@ -8,6 +8,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 const Login = () => {
     const { signIn, popupSignIn } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
 
     const handleSubmit = (event) => {
@@ -34,7 +35,7 @@ const Login = () => {
             .catch(e => console.error(e))
     }
     const handleGithubSignIn = () => {
-        popupSignIn(googleProvider)
+        popupSignIn(githubProvider)
             .then(result => {
                 console.log(result.user);
             })
