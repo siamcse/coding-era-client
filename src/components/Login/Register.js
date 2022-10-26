@@ -1,12 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Register = () => {
     const { createUser, profileUpdate } = useContext(AuthContext);
     const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -20,26 +25,32 @@ const Register = () => {
         setError('');
 
         createUser(email, password)
-        .then(result=>{
-            console.log(result.user);
-            profileUpdate({
-                displayName: name,
-                photoURL: photoURL
+            .then(result => {
+                console.log(result.user);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Done',
+                    text: 'Registration Successfull.'
+                })
+                profileUpdate({
+                    displayName: name,
+                    photoURL: photoURL
+                })
+                    .then(() => { })
+                    .catch(e => {
+                        console.error(e);
+                        setError(e.message);
+                    })
+                navigate(from, { replace: true });
             })
-            .then(()=>{})
-            .catch(e=>{
-                console.error(e);
-                setError(e.message);
-            })
-        })
-        .catch(e=>{
-            console.error(e)
-            setError(e.message)
-        });
+            .catch(e => {
+                console.error(e)
+                setError(e.message)
+            });
 
     }
 
-    
+
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col">
@@ -51,36 +62,36 @@ const Register = () => {
                         <div className="form-control">
                             <label className="input-group">
                                 <span className="label-text pr-11">Name</span>
-                            <input type="text" name='name' placeholder="name" className="input input-bordered" />
+                                <input type="text" name='name' placeholder="name" className="input input-bordered" />
                             </label>
                         </div>
                         <div className="form-control">
                             <label className="input-group">
                                 <span className="label-text">Photo URL</span>
-                            <input type="text" name='photourl' placeholder="Photo URL" className="input input-bordered" />
+                                <input type="text" name='photourl' placeholder="Photo URL" className="input input-bordered" />
                             </label>
                         </div>
                         <div className="form-control">
                             <label className="input-group">
                                 <span className="label-text pr-12">Email</span>
-                            <input type="text" name='email' placeholder="email" className="input input-bordered" required />
+                                <input type="text" name='email' placeholder="email" className="input input-bordered" required />
                             </label>
                         </div>
                         <div className="form-control">
                             <label className="input-group">
                                 <span className="label-text pr-6">Password</span>
-                            <input type="password" name='password' placeholder="password" className="input input-bordered" required />
+                                <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                             </label>
                         </div>
                         {
-                           error && <p className='text-red-700'>{error}</p>
+                            error && <p className='text-red-700'>{error}</p>
                         }
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Register</button>
                         </div>
                         <p>Already have an account? <Link to='/login'>Please Login</Link></p>
                     </form>
-                    
+
                 </div>
             </div>
         </div>

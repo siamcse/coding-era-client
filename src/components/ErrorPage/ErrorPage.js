@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const ErrorPage = () => {
     return (
         <div className='flex flex-col justify-center items-center min-h-screen'>
-            <h2 className='text-5xl'>Error 404!!!</h2>
-            <Link to='/'><button className='btn btn-ghost'>Back to Homepage</button></Link>
+            <img src="https://cdn.svgator.com/images/2022/01/404-page-animation-example.gif" alt="" />
+            <Link to='/'><button className='btn bg-emerald-600 hover:bg-emerald-800'>Back to Homepage</button></Link>
         </div>
     );
 };

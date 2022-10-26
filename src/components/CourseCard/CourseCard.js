@@ -19,9 +19,9 @@ const CourseCard = ({ course }) => {
                     </p>
                     <div className="card-actions">
                         <Link to={`/course/${id}`}>
-                            <button className="btn btn-primary btn-sm w-full absolute bottom-0 ">
+                            <button className="btn bg-teal-600 btn-sm w-full absolute bottom-0 hover:bg-teal-800 hover:translate-x-1 hover:scale-1200">
                                 Details
-                                <FaArrowRight className='ml-2' />
+                                <FaArrowRight className='ml-2 transition ease-in-out delay-150 ' />
                             </button>
                         </Link>
                     </div>

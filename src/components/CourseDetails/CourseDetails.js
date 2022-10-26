@@ -1,7 +1,7 @@
 import React, { createRef } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { FcCheckmark } from "react-icons/fc";
-import { FaFileDownload } from "react-icons/fa";
+import { FaLink } from "react-icons/fa";
 import Pdf from "react-to-pdf";
 
 const CourseDetails = () => {
@@ -13,11 +13,11 @@ const CourseDetails = () => {
         <div className='lg:w-2/4 mx-auto'>  
             <div className="hero min-h-screen bg-base-100 shadow-xl mb-6">
                 <div ref={ref} className="hero-content flex-col">
-                    <h1 className="text-5xl font-bold mt-4">{title}</h1>
+                    <h1 className="text-2xl lg:text-5xl font-bold mt-4">{title}</h1>
                     <img src={image} className="rounded-lg shadow-2xl" alt='' />
                     <div>
                         <Pdf targetRef={ref} filename="code-example.pdf">
-                            {({ toPdf }) => <button className='flex gap-2 items-center right-96 top-16 absolute btn text-black bg-transparent btn-sm mt-2' onClick={toPdf}><FaFileDownload/>PDF Download</button>}
+                            {({ toPdf }) => <button className='flex gap-2 items-center right-96 top-16 absolute btn text-black bg-transparent btn-sm mt-2' onClick={toPdf}><FaLink/>PDF Download</button>}
                         </Pdf>
                         
                         <p className="py-6">{description}</p>
@@ -29,7 +29,7 @@ const CourseDetails = () => {
                                     {item}</li>)
                             }
                         </ul>
-                        <Link to={`/checkout/${id}`}><button className="btn btn-primary my-6">Get Premium Access</button></Link>
+                        <Link to={`/checkout/${id}`}><button className="btn bg-emerald-500 my-6 hover:bg-emerald-800">Get Premium Access</button></Link>
                     </div>
                 </div>
             </div>

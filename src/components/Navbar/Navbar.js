@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
 import toast from 'react-hot-toast';
+import { FaUserAlt } from 'react-icons/fa';
 
 const Navbar = () => {
     const [value, setValue] = useState(false);
@@ -14,7 +15,7 @@ const Navbar = () => {
         logOut()
             .then(() => {
                 toast.success("Logged out successfull!");
-             })
+            })
             .catch(e => console.error(e))
     }
 
@@ -35,7 +36,9 @@ const Navbar = () => {
                                 user ?
                                     <li>
                                         <div>
-                                            <img className='w-9 rounded-full' src={user?.photoURL} alt='' title={user?.displayName} />
+                                            {
+                                                user?.photoURL ? <img className='w-9 rounded-full' src={user?.photoURL} alt='' title={user?.displayName} /> : <FaUserAlt title={user?.displayName}></FaUserAlt>
+                                            }
                                             <p>{user?.displayName}</p>
                                         </div>
                                         <button onClick={handleLogOut} className="btn">Log Out</button>
@@ -45,7 +48,7 @@ const Navbar = () => {
                             }
                         </ul>
                     </div>
-                    <Link to='/' className="btn  normal-case text-xl"><img src="../../assets/cover-removebg-preview.png" alt="" /></Link>
+                    <Link to='/' className="btn  normal-case text-xl">Coding Era</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
@@ -58,7 +61,9 @@ const Navbar = () => {
                                 <li className='flex items-center'>
                                     <button onClick={handleLogOut} className="btn">Log Out</button>
                                     <div>
-                                        <img className='w-9 rounded-full' src={user?.photoURL} alt='' title={user?.displayName} />
+                                        {
+                                            user?.photoURL ? <img className='w-9 rounded-full' src={user?.photoURL} alt='' title={user?.displayName} /> : <FaUserAlt title={user?.displayName}></FaUserAlt>
+                                        }
                                     </div>
                                 </li>
                                 :

@@ -7,7 +7,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 
 const CheckOut = () => {
     const course = useLoaderData();
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     const { title, image } = course;
     const steps = [
@@ -16,7 +16,7 @@ const CheckOut = () => {
         'Payment',
     ];
 
-    const proceedPayment=()=>{
+    const proceedPayment = () => {
         toast.error("Proceed is under construction!");
     }
     return (
@@ -75,7 +75,7 @@ const CheckOut = () => {
                         <p>Total Payment:</p>
                         <p>34</p>
                     </div>
-                    <button onClick={proceedPayment} className='btn bg-emerald-600 mt-3 mr-3'>Proceed to Payment</button>
+                    <button onClick={proceedPayment} className='btn bg-emerald-600 mt-3 mr-3 hover:bg-emerald-800'>Proceed to Payment</button>
                 </div>
             </div>
         </div>
