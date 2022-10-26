@@ -10,20 +10,26 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState({});
+    const [loading, setLoading] = useState(true);
 
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
     const popupSignIn = (provider) => {
+        setLoading(true);
         return signInWithPopup(auth, provider);
     }
     const signIn = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
-    const profileUpdate = (profile)=>{
-        return updateProfile(auth.currentUser,profile);
+    const profileUpdate = (profile) => {
+        setLoading(true);
+        return updateProfile(auth.currentUser, profile);
     }
     const logOut = () => {
+        setLoading(true);
         return signOut(auth);
     }
 
@@ -31,13 +37,14 @@ const AuthProvider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             console.log('state changed', currentUser);
             setUser(currentUser);
+            setLoading(false);
         })
         return () => {
             unSubscribe();
         }
     }, [])
 
-    const authInfo = { user, createUser, popupSignIn, signIn, profileUpdate, logOut };
+    const authInfo = { user, loading, createUser, popupSignIn, signIn, profileUpdate, logOut };
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

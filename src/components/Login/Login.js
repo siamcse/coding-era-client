@@ -1,12 +1,20 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
     const { signIn, popupSignIn } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
+    console.log(from);
+
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
 
@@ -18,28 +26,33 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
-
+        setError('');
         signIn(email, password)
             .then(result => {
                 console.log(result.user);
+                navigate(from, { replace: true });
             })
-            .catch(e => console.error(e));
+            .catch(e => setError(e.message));
 
     }
 
     const handleGoogleSignIn = () => {
+        setError('');
         popupSignIn(googleProvider)
             .then(result => {
                 console.log(result.user);
+                navigate(from, { replace: true });
             })
-            .catch(e => console.error(e))
+            .catch(e => setError(e.message))
     }
     const handleGithubSignIn = () => {
+        setError('');
         popupSignIn(githubProvider)
             .then(result => {
                 console.log(result.user);
+                navigate(from, { replace: true });
             })
-            .catch(e => console.error(e))
+            .catch(e => setError(e.message))
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -64,6 +77,9 @@ const Login = () => {
                                 <Link className="label-text-alt link link-hover">Forgot password?</Link>
                             </label>
                         </div>
+                        {
+                            error && <p className='text-red-700'>{error}</p>
+                        }
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
