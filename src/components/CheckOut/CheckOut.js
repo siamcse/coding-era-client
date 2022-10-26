@@ -9,7 +9,8 @@ const CheckOut = () => {
     const course = useLoaderData();
     const { user } = useContext(AuthContext);
 
-    const { title, image } = course;
+    const { price, rating, title, image } = course;
+
     const steps = [
         'Select Course',
         'Your Info',
@@ -47,15 +48,15 @@ const CheckOut = () => {
                                 <h3 className='text-xl'>Payment Details</h3>
                                 <div className='flex justify-between '>
                                     <p>Course Price</p>
-                                    <p>$34</p>
+                                    <p>Tk.{price}</p>
                                 </div>
                                 <div className='flex justify-between '>
-                                    <p>Discount</p>
-                                    <p>$34</p>
+                                    <p>Discount (15%)</p>
+                                    <p>Tk. {price*15/100}</p>
                                 </div>
                                 <div className='flex justify-between '>
                                     <p>Total Payment</p>
-                                    <p>$34</p>
+                                    <p>Tk. {price - price * 15 / 100}</p>
                                 </div>
                             </div>
                         </div>
@@ -71,9 +72,9 @@ const CheckOut = () => {
                         <p>Email:</p>
                         <p>{user?.email}</p>
                     </div>
-                    <div className='flex  text-lg'>
+                    <div className='flex  text-lg gap-2'>
                         <p>Total Payment:</p>
-                        <p>34</p>
+                        <p>Tk. {price - price * 15 / 100}</p>
                     </div>
                     <button onClick={proceedPayment} className='btn bg-emerald-600 mt-3 mr-3 hover:bg-emerald-800'>Proceed to Payment</button>
                 </div>
