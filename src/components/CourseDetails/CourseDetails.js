@@ -10,11 +10,11 @@ const CourseDetails = () => {
     const { id, title, description, learnItem, image } = course;
     console.log(course);
     return (
-        <div className='w-full lg:w-2/4 mx-auto'>  
-            <div className="hero min-h-screen bg-base-200">
+        <div className='lg:w-2/4 mx-auto'>  
+            <div className="hero min-h-screen bg-base-100 shadow-xl mb-6">
                 <div ref={ref} className="hero-content flex-col">
                     <h1 className="text-5xl font-bold mt-4">{title}</h1>
-                    <img src={image} className="max-w-lg rounded-lg shadow-2xl" alt='' />
+                    <img src={image} className="rounded-lg shadow-2xl" alt='' />
                     <div>
                         <Pdf targetRef={ref} filename="code-example.pdf">
                             {({ toPdf }) => <button className='flex gap-2 items-center right-96 top-16 absolute btn text-black bg-transparent btn-sm mt-2' onClick={toPdf}><FaFileDownload/>PDF Download</button>}
