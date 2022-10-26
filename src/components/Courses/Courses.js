@@ -11,12 +11,12 @@ const Courses = () => {
         <div className='md:mx-12 my-12 '>
             <h2 className='text-3xl text-center'>All Courses: {courses.length}</h2>
             <div className='md:grid md:grid-cols-3 mt-10'>
-                <div data-aos="fade-right" className='md:w-3/4 bg-gray-600 text-white rounded-lg mx-auto lg:min-h-screen'>
-                    <h2 className='text-3xl text-center'>All Course Title</h2>
+                <div data-aos="fade-right" className='md:w-3/4 bg-base-100 rounded-lg mx-auto lg:min-h-screen overflow-hidden'>
+                    <h2 className='text-3xl text-center'>Course Title</h2>
                     {
                         courses.map(course =>
                             <li
-                                className='p-2 md:p-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'
+                                className='p-2 text-emerald-600 md:p-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 hover:shadow-md'
                                 key={course.id}>
                                 <Link to={`/course/${course.id}`}>{course.title}</Link>
                             </li>)
