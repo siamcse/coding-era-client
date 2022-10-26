@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
@@ -30,6 +31,11 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 console.log(result.user);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Done',
+                    text: 'Logged in Successfully'
+                })
                 navigate(from, { replace: true });
             })
             .catch(e => setError(e.message));
@@ -41,6 +47,11 @@ const Login = () => {
         popupSignIn(googleProvider)
             .then(result => {
                 console.log(result.user);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Done',
+                    text: 'Logged in Successfully'
+                })
                 navigate(from, { replace: true });
             })
             .catch(e => setError(e.message))
@@ -50,6 +61,11 @@ const Login = () => {
         popupSignIn(githubProvider)
             .then(result => {
                 console.log(result.user);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Done',
+                    text: 'Logged in Successfully'
+                })
                 navigate(from, { replace: true });
             })
             .catch(e => setError(e.message))

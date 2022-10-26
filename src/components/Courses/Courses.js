@@ -15,7 +15,7 @@ const Courses = () => {
                     <h2 className='text-3xl text-center'>All Course Title</h2>
                     {
                         courses.map(course =>
-                            <h4 className='p-4'>
+                            <h4 className='p-4' key={course.id}>
                                 <Link to={`/course/${course.id}`}>{course.title}</Link>
                             </h4>)
                     }

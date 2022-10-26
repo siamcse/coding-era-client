@@ -1,6 +1,7 @@
 import { Box, Step, StepLabel, Stepper } from '@mui/material';
 import React from 'react';
 import { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
@@ -14,6 +15,10 @@ const CheckOut = () => {
         'Your Info',
         'Payment',
     ];
+
+    const proceedPayment=()=>{
+        toast.error("Proceed is under construction!");
+    }
     return (
         <div className='my-10'>
             <Box sx={{ width: '100%' }}>
@@ -56,7 +61,7 @@ const CheckOut = () => {
                         </div>
                     </div>
                 </div>
-                <div className='card shadow-xl pl-3 mt-6 lg:mt-0'>
+                <div className='card bg-base-100 md:w-3/4 shadow-xl pl-3 mt-6 lg:mt-0'>
                     <h2 className='text-xl'>User Info</h2>
                     <div className='flex gap-6 '>
                         <p>Name:</p>
@@ -70,7 +75,7 @@ const CheckOut = () => {
                         <p>Total Payment:</p>
                         <p>34</p>
                     </div>
-                    <button className='btn bg-emerald-600 mt-3 '>Proceed to Payment</button>
+                    <button onClick={proceedPayment} className='btn bg-emerald-600 mt-3 mr-3'>Proceed to Payment</button>
                 </div>
             </div>
         </div>

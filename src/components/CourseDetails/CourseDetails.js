@@ -10,7 +10,7 @@ const CourseDetails = () => {
     const { id, title, description, learnItem, image } = course;
     console.log(course);
     return (
-        <div className='lg:w-2/4 mx-auto'>  
+        <div className='w-full lg:w-2/4 mx-auto'>  
             <div className="hero min-h-screen bg-base-200">
                 <div ref={ref} className="hero-content flex-col">
                     <h1 className="text-5xl font-bold mt-4">{title}</h1>

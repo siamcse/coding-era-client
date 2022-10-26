@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
     const [value, setValue] = useState(false);
@@ -11,7 +12,9 @@ const Navbar = () => {
 
     const handleLogOut = () => {
         logOut()
-            .then(() => { })
+            .then(() => {
+                toast.success("Logged out successfull!");
+             })
             .catch(e => console.error(e))
     }
 

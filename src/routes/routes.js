@@ -26,17 +26,17 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses',
                 element: <Courses />,
-                loader: () => fetch('http://localhost:5000/courses')
+                loader: () => fetch('https://coding-era-server-siamcse.vercel.app/courses')
             },
             {
                 path: '/course/:id',
                 element: <CourseDetails />,
-                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({ params }) => fetch(`https://coding-era-server-siamcse.vercel.app/course/${params.id}`)
             },
             {
                 path: 'checkout/:id',
                 element: <PrivateRoutes><CheckOut /></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({ params }) => fetch(`https://coding-era-server-siamcse.vercel.app/course/${params.id}`)
             },
             {
                 path: '/login',
