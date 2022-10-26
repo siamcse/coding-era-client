@@ -8,10 +8,10 @@ const Courses = () => {
     const courses = useLoaderData();
     AOS.init();
     return (
-        <div className='mx-12 my-12 '>
+        <div className='md:mx-12 my-12 '>
             <h2 className='text-3xl text-center'>All Courses: {courses.length}</h2>
-            <div className='grid grid-cols-3 mt-10'>
-                <div data-aos="fade-up-right" className='w-3/4 mx-auto min-h-screen'>
+            <div className='md:grid md:grid-cols-3 mt-10'>
+                <div data-aos="fade-up-right" className='md:w-3/4 mx-auto min-h-screen'>
                     <h2 className='text-3xl text-center'>All Course Title</h2>
                     {
                         courses.map(course =>
@@ -20,7 +20,7 @@ const Courses = () => {
                             </h4>)
                     }
                 </div>
-                <div data-aos="fade-down-left" className='col-span-2 grid grid-cols-3 gap-10'>
+                <div data-aos="fade-down-left" className='col-span-2 grid md:grid-cols-2 lg:grid-cols-3 gap-10'>
                     {
                         courses.map(course => <CourseCard
                             key={course.id}

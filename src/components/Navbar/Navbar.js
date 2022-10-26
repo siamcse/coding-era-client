@@ -64,7 +64,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <p className='mr-2'>Dark Mode:</p>
+                    <p className='mr-2'><span className='hidden lg:block'>Dark Mode:</span></p>
                     <ToggleButton
                         value={value || false}
                         onToggle={(value) => {

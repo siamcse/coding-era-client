@@ -7,7 +7,7 @@ import Pdf from "react-to-pdf";
 const CourseDetails = () => {
     const course = useLoaderData();
     const ref = createRef();
-    const { title, description, learnItem, image } = course;
+    const { id, title, description, learnItem, image } = course;
     console.log(course);
     return (
         <div className='lg:w-2/4 mx-auto'>  
@@ -24,12 +24,12 @@ const CourseDetails = () => {
                         <h3 className='text-3xl font-semibold my-3'>What will you learn?</h3>
                         <ul>
                             {
-                                learnItem.map(item => <li className='flex items-start'>
+                                learnItem.map((item,indx) => <li className='flex items-start' key={indx}>
                                     <FcCheckmark className='border-2 border-green-600 rounded-full mr-3'/>
                                     {item}</li>)
                             }
                         </ul>
-                        <Link to='/checkout'><button className="btn btn-primary my-6">Get Started</button></Link>
+                        <Link to={`/checkout/${id}`}><button className="btn btn-primary my-6">Get Premium Access</button></Link>
                     </div>
                 </div>
             </div>
