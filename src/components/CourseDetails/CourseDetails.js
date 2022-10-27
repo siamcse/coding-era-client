@@ -17,7 +17,7 @@ const CourseDetails = () => {
                     <img src={image} className="rounded-lg shadow-2xl" alt='' />
                     <div>
                         <Pdf targetRef={ref} filename="code-example.pdf">
-                            {({ toPdf }) => <button className='flex gap-2 items-center right-96 top-16 absolute btn text-black bg-transparent btn-sm mt-2' onClick={toPdf}><FaLink/>PDF Download</button>}
+                            {({ toPdf }) => <button className='flex gap-2 items-center right-0 md:right-96 top-16 absolute btn text-black bg-transparent btn-sm mt-2' onClick={toPdf}><FaLink/>PDF Download</button>}
                         </Pdf>
                         
                         <p className="py-6"><span className='font-semibold text-lg'>Description:</span> {description}</p>

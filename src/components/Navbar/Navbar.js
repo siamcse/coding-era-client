@@ -1,6 +1,6 @@
 import React from 'react';
 import ToggleButton from 'react-toggle-button'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
@@ -19,6 +19,7 @@ const Navbar = () => {
             .catch(e => console.error(e))
     }
 
+    const activeClassName = "bg-gray-300 md:bg-gray-800";
     return (
         <div>
             <div className="navbar bg-neutral text-neutral-content">
@@ -28,10 +29,38 @@ const Navbar = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box text-black w-52">
-                            <li><Link to='/home'>Home</Link></li>
-                            <li><Link to='/courses'>Courses</Link></li>
-                            <li><Link to='/faq'>FAQ</Link></li>
-                            <li><Link to='/blog'>Blog</Link></li>
+                            <li><NavLink
+                                to="home"
+                                className={({ isActive }) =>
+                                    isActive ? activeClassName : undefined
+                                }
+                            >
+                                Home
+                            </NavLink></li>
+                            <li><NavLink
+                                to='/courses'
+                                className={({ isActive }) =>
+                                    isActive ? activeClassName : undefined
+                                }
+                            >
+                                Courses
+                            </NavLink></li>
+                            <li><NavLink
+                                to='/faq'
+                                className={({ isActive }) =>
+                                    isActive ? activeClassName : undefined
+                                }
+                            >
+                                FAQ
+                            </NavLink></li>
+                            <li><NavLink
+                                to='/blog'
+                                className={({ isActive }) =>
+                                    isActive ? activeClassName : undefined
+                                }
+                            >
+                                Blog
+                            </NavLink></li>
                             {
                                 user ?
                                     <li>
@@ -44,7 +73,9 @@ const Navbar = () => {
                                         <button onClick={handleLogOut} className="btn">Log Out</button>
                                     </li>
                                     :
-                                    <Link to='/login' className="btn">Login</Link>
+                                    <li><NavLink to='/login' className={({ isActive }) =>
+                                        isActive ? activeClassName : undefined
+                                    }>Login</NavLink></li>
                             }
                         </ul>
                     </div>
@@ -52,10 +83,38 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
-                        <li><Link to='/home'>Home</Link></li>
-                        <li><Link to='/courses'>Courses</Link></li>
-                        <li><Link to='/faq'>FAQ</Link></li>
-                        <li><Link to='/blog'>Blog</Link></li>
+                        <li><NavLink
+                            to="home"
+                            className={({ isActive }) =>
+                                isActive ? activeClassName : undefined
+                            }
+                        >
+                            Home
+                        </NavLink></li>
+                        <li><NavLink
+                            to='/courses'
+                            className={({ isActive }) =>
+                                isActive ? activeClassName : undefined
+                            }
+                        >
+                            Courses
+                        </NavLink></li>
+                        <li><NavLink
+                            to='/faq'
+                            className={({ isActive }) =>
+                                isActive ? activeClassName : undefined
+                            }
+                        >
+                            FAQ
+                        </NavLink></li>
+                        <li><NavLink
+                            to='/blog'
+                            className={({ isActive }) =>
+                                isActive ? activeClassName : undefined
+                            }
+                        >
+                            Blog
+                        </NavLink></li>
                         {
                             user ?
                                 <li className='flex items-center'>
@@ -67,7 +126,9 @@ const Navbar = () => {
                                     </div>
                                 </li>
                                 :
-                                <Link to='/login' className="btn">Login</Link>
+                                <li><NavLink to='/login' className={({ isActive }) =>
+                                    isActive ? activeClassName : undefined
+                                }>Login</NavLink></li>
                         }
                     </ul>
                 </div>

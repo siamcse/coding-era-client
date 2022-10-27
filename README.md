@@ -17,6 +17,7 @@ Live Website: https://coding-era-67c70.web.app
 11. Register form has Fullname, photoURL, email and password
 12. Firebase Authentication is added into Login and Registration form
 13. Context api is included.
+14. Active route included.
 
 ## Uses of Package
 ```
