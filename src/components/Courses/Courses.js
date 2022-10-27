@@ -16,7 +16,7 @@ const Courses = () => {
                     {
                         courses.map(course =>
                             <li
-                                className='p-2 text-emerald-600 md:p-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 hover:shadow-md'
+                                className='p-2 text-emerald-600 md:p-4 transition ease-in-out delay-350 hover:-translate-y-1 hover:scale-y-110 duration-300 hover:shadow-md'
                                 key={course.id}>
                                 <Link to={`/course/${course.id}`}>{course.title}</Link>
                             </li>)

@@ -17,15 +17,17 @@ const CourseCard = ({ course }) => {
                             { description }
                         }
                     </p>
-                    <div className="card-actions">
+                </div>
+                    <div className="">
                         <Link to={`/course/${id}`}>
-                            <button className="btn bg-teal-600 btn-sm w-full absolute bottom-0 hover:bg-teal-800 hover:translate-x-1 hover:scale-1200">
-                                Details
-                                <FaArrowRight className='ml-2 transition ease-in-out delay-150 ' />
+                            <button className="btn rounded-none bg-teal-600 btn-sm w-full absolute bottom-0 hover:bg-teal-800 ">
+                                <span className='flex hover:translate-x-1 hover:scale-1200 transition ease-in-out delay-450 '>
+                                    Details
+                                    <FaArrowRight className='ml-2 ' />
+                                </span>
                             </button>
                         </Link>
                     </div>
-                </div>
             </div>
         </div>
     );

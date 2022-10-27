@@ -6,7 +6,7 @@ const Footer = () => {
         <div>
             <footer className="footer p-10 bg-base-100 text-base-content">
                 <div>
-                    <img className='bg-gray-400 w-44 md:w-64 rounded-xl' src="https://i.ibb.co/4MccM5Y/cover-removebg-preview.png" alt="" />
+                    <img className='bg-gray-400 w-44 md:w-64 rounded-xl' src="/coding-era.png" alt="" />
                     <p>The Tech Company Ltd.<br/>Providing reliable tech since 2022</p>
                 </div>
                 <div>
