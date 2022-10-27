@@ -97,13 +97,13 @@ const Login = () => {
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleSubmit} className="card-body">
                         <div className="form-control">
-                            <label className='input-group'>
+                            <label className='input-group flex flex-col md:flex-row'>
                                 <span className='pr-10'>Email</span>
                                 <input onBlur={handleEmail} type="text" name='email' placeholder="email" className="input input-bordered" required/>
                             </label>
                         </div>
                         <div className="form-control">
-                            <label className='input-group'>
+                            <label className='input-group flex flex-col md:flex-row '>
                                 <span>Password</span>
                                 <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                             </label>
