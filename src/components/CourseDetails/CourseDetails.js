@@ -8,7 +8,7 @@ const CourseDetails = () => {
     const course = useLoaderData();
     const ref = createRef();
     const { id, title, description, learnItem, image } = course;
-    console.log(course);
+
     return (
         <div className='lg:w-2/4 mx-auto'>  
             <div className="hero min-h-screen bg-base-100 shadow-xl mb-6">
@@ -20,7 +20,7 @@ const CourseDetails = () => {
                             {({ toPdf }) => <button className='flex gap-2 items-center right-96 top-16 absolute btn text-black bg-transparent btn-sm mt-2' onClick={toPdf}><FaLink/>PDF Download</button>}
                         </Pdf>
                         
-                        <p className="py-6">{description}</p>
+                        <p className="py-6"><span className='font-semibold text-lg'>Description:</span> {description}</p>
                         <h3 className='text-3xl font-semibold my-3'>What will you learn?</h3>
                         <ul>
                             {

@@ -71,9 +71,9 @@ const Blog = () => {
                                         height="24"
                                     />
                                 </svg>
-                                <span class="relative">Frequently</span>
+                                <span class="relative">Blog</span>
                             </span>{' '}
-                            Asked Question
+                            about Authentication
                         </h2>
                         <p class="text-base text-gray-700 md:text-lg">
                             

@@ -16,7 +16,6 @@ const Login = () => {
     const location = useLocation();
 
     const from = location.state?.from?.pathname || "/";
-    console.log(from);
 
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -118,7 +117,7 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button className="btn bg-emerald-600 hover:bg-emerald-800">Login</button>
                         </div>
-                        <p>Are you a new user? <Link to='/register'>Please Register</Link></p>
+                        <p>Are you a new user? <Link to='/register' className='text-blue-700 underline'>Please Register</Link></p>
                     </form>
                     <div className="divider">OR</div>
                     <div className="card-body">

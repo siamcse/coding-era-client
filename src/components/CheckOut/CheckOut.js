@@ -2,6 +2,7 @@ import { Box, Step, StepLabel, Stepper } from '@mui/material';
 import React from 'react';
 import { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { FaStar } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
@@ -40,7 +41,9 @@ const CheckOut = () => {
                                 <figure><img className='lg:h-16' src={image} alt="Album" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">{title}</h2>
-
+                                    <p className='flex items-center gap-2'>
+                                        <FaStar className='text-orange-400'></FaStar> <span>{rating}</span>
+                                    </p>
                                 </div>
                             </div>
                             <div className='border-t-2'></div>
@@ -52,7 +55,7 @@ const CheckOut = () => {
                                 </div>
                                 <div className='flex justify-between '>
                                     <p>Discount (15%)</p>
-                                    <p>Tk. {price*15/100}</p>
+                                    <p>Tk. {price * 15 / 100}</p>
                                 </div>
                                 <div className='flex justify-between '>
                                     <p>Total Payment</p>
@@ -62,7 +65,7 @@ const CheckOut = () => {
                         </div>
                     </div>
                 </div>
-                <div className='card bg-base-100 md:w-3/4 shadow-xl pl-3 mt-6 lg:mt-0'>
+                <div className='card bg-base-100 md:w-3/4 shadow-xl pl-3 mt-6 lg:mt-0 leading-8'>
                     <h2 className='text-xl'>User Info</h2>
                     <div className='flex gap-6 '>
                         <p>Name:</p>

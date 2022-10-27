@@ -61,7 +61,7 @@ const Register = () => {
                     <form onSubmit={handleSubmit} className="card-body">
                         <div className="form-control">
                             <label className="input-group">
-                                <span className="label-text pr-11">Name</span>
+                                <span className="label-text pr-4">Full Name</span>
                                 <input type="text" name='name' placeholder="name" className="input input-bordered" />
                             </label>
                         </div>
@@ -89,7 +89,7 @@ const Register = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Register</button>
                         </div>
-                        <p>Already have an account? <Link to='/login'>Please Login</Link></p>
+                        <p>Already have an account? <Link to='/login' className='text-blue-700 underline'>Please Login</Link></p>
                     </form>
 
                 </div>
