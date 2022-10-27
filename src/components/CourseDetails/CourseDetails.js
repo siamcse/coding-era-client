@@ -1,6 +1,6 @@
 import React, { createRef } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import { FcCheckmark } from "react-icons/fc";
+import { GiCheckMark } from "react-icons/gi";
 import { FaLink } from "react-icons/fa";
 import Pdf from "react-to-pdf";
 
@@ -25,7 +25,7 @@ const CourseDetails = () => {
                         <ul>
                             {
                                 learnItem.map((item,indx) => <li className='flex items-start' key={indx}>
-                                    <FcCheckmark className='border-2 border-green-600 rounded-full mr-3'/>
+                                    <GiCheckMark className='text-xl m-1 mr-3'/>
                                     {item}</li>)
                             }
                         </ul>
