@@ -87,7 +87,7 @@ const Register = () => {
                             error && <p className='text-red-700'>{error}</p>
                         }
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Register</button>
+                            <button className="btn bg-emerald-600 hover:bg-emerald-800">Register</button>
                         </div>
                         <p>Already have an account? <Link to='/login' className='text-blue-700 underline'>Please Login</Link></p>
                     </form>
